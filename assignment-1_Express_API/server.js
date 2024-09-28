@@ -15,8 +15,10 @@ mongoose.connect(MongodbURI,{
 
 app.use(express.json());
 
-
-
+// testing route
+app.get('/test', (req, res) => {
+    res.send('I am testing')
+  })
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
