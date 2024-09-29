@@ -1,6 +1,11 @@
+/**
+ * File: recipeController.js
+ * Author: Sunil Balami
+ * StudentID: 200578456
+ * Date: 2024-09-29
+ */
+
 const Recipe = require('../models/recipeModel');
-
-
 const getAllRecipes = async (req, res) => {
     try {
         const recipes = await Recipe.find();

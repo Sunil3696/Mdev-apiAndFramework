@@ -1,3 +1,9 @@
+/**
+ * File: recipeModel.js
+ * Author: Sunil Balami
+ * StudentID: 200578456
+ * Date: 2024-09-29
+ */
 const mongoose = require("mongoose");
 
 const recipeSchema = new mongoose.Schema({

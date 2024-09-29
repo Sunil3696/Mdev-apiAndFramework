@@ -1,3 +1,9 @@
+/**
+ * File: server.js
+ * Author: Sunil Balami
+ * StudentID: 200578456
+ * Date: 2024-09-29
+ */
 const express  = require('express');
 const mongoose = require('mongoose');
 const recipeRoutes = require('./src/routes/recipeRoutes');
