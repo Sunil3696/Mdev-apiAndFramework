@@ -1,7 +1,7 @@
 {
   "name": "assignment-1_express_api",
   "version": "1.0.0",
-  "main": "nodemon server.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
