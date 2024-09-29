@@ -11,4 +11,30 @@ const getAllRecipes = async (req, res) => {
         res.status(500).json({ message: 'Failed to get recipes', error: error.message });
     }
 }
-module.exports = {getAllRecipes};
+
+
+const createRecipe = async (req, res) => {
+    const { recipeName, ingredients, cookingTime, difficulty, cuisine, description, photoLink, averageRating } = req.body;
+    const newRecipe = new Recipe({
+        recipeName,
+        ingredients,
+        cookingTime,
+        difficulty,
+        cuisine,
+        description,
+        photoLink,
+        averageRating
+    });
+    // res.json("sunil")
+    try {
+        const savedData  = await newRecipe.save();
+        res.status(201).json(savedData)
+    }
+    catch (error){
+        res.status(400).json({ message: 'Failed to create recipe', error: error.message });
+    }
+
+}
+
+
+module.exports = {getAllRecipes, createRecipe};
