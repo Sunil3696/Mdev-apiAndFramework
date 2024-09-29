@@ -9,7 +9,7 @@ const Recipe = require('../models/recipeModel');
 const getAllRecipes = async (req, res) => {
     try {
         const recipes = await Recipe.find();
-        // res.json("I am here sending respinses");
+        // res.json("I am here sending respinsess");
         res.status(200).json(recipes);
     }
     catch (error) {
