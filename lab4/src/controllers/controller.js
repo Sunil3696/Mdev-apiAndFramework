@@ -53,6 +53,18 @@ const fs =require('fs');
 exports.getMovies = async(req,res)=>{
     try {
         let filter = {};
+        if (!req.query.title && !req.query.genre && !req.query.year) {
+            try{
+                        const movies = await Movie.find();
+                         res.status(200).json(movies);
+                    }
+                    catch(e){
+                            console.error(e);
+                            res.status(500).send('Error retrieving Movies');
+                    }
+        }
+
+
         if(req.query.title) {
             //adding query title to the filter and making the filter incase sensitive
             filter.title = new RegExp(req.query.title, 'i');
@@ -64,7 +76,12 @@ exports.getMovies = async(req,res)=>{
             filter.year = Number(req.query.year);
         }
 
-        
+        //  console.log(filter)
+        const movies = await Movie.find(filter);
+
+        res.status(200).send(movies);
+
+    
 
         // console.log(filter)
         // return
