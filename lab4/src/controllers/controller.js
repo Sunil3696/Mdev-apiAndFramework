@@ -20,7 +20,16 @@ exports.getMovies = async(req,res)=>{
             let filter = {};
 
             if(req.query.title) {
-                res.status(200).send("I am here")
+                filter.title = new RegExp(req.query.title, 'i');
+                let movies = await Movie.find(filter);
+                    if(movies.length > 0){
+                        res.status(200).send(movies);
+                    } else {
+                        res.status(400).send("No movie found with that title");
+                    }
+
+                
+
             }
 
             else {
