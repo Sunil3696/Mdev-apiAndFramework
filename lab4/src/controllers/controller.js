@@ -53,25 +53,27 @@ const fs =require('fs');
 exports.getMovies = async(req,res)=>{
     try {
         let filter = {};
+
+        // returning all mmovie details when all the query params are empty
         if (!req.query.title && !req.query.genre && !req.query.year) {
             try{
                         const movies = await Movie.find();
-                         res.status(200).json(movies);
+                         res.status(200).json(movies);  //sending response
                     }
                     catch(e){
                             console.error(e);
-                            res.status(500).send('Error retrieving Movies');
+                            res.status(500).send('Error retrieving Movies');  //sending error
                     }
         }
-
-
         if(req.query.title) {
             //adding query title to the filter and making the filter incase sensitive
             filter.title = new RegExp(req.query.title, 'i');
-        }
+        } 
+        // adding genre to the filder when passed on query 
         if (req.query.genre) {
             filter.genres = req.query.genre;
         }
+        // check and add year filter if passed
         if(req.query.year){
             filter.year = Number(req.query.year);
         }
@@ -85,9 +87,6 @@ exports.getMovies = async(req,res)=>{
            else {
             res.status(404).send("No movies data found with given filters");
            }
-
-    
-
         // console.log(filter)
         // return
     }
