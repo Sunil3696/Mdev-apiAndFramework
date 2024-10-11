@@ -1,7 +1,7 @@
 const Movie = require('../models/Movies');
 const fs =require('fs');
 
-//Function to get all the files
+//Function to get all the files (Old one)
 // exports.getMovies = async(req,res)=>{
 //     try{
 //         const movies = await Movie.find();
@@ -67,6 +67,7 @@ exports.getMovies = async(req,res)=>{
                             console.error(e);
                             res.status(500).send('Error retrieving Movies');  //sending error
                     }
+                    return
         }
         if(req.query.title) {
             //adding query title to the filter and making the filter incase sensitive
