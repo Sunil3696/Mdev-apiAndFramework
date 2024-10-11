@@ -50,6 +50,9 @@ const fs =require('fs');
 
 // }
 
+
+
+// Section 2: extending search and filter functionality
 exports.getMovies = async(req,res)=>{
     try {
         let filter = {};
@@ -77,7 +80,6 @@ exports.getMovies = async(req,res)=>{
         if(req.query.year){
             filter.year = Number(req.query.year);
         }
-
         //  console.log(filter)
         const movies = await Movie.find(filter);
 
@@ -88,13 +90,11 @@ exports.getMovies = async(req,res)=>{
             res.status(404).send("No movies data found with given filters");
            }
         // console.log(filter)
-        // return
     }
     catch (error) {
         console.error('Error fetching movies:', error);
         res.status(500).send({ message: 'Error retrieving movies' });
     }
-
 }
 
 
