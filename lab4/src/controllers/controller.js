@@ -79,7 +79,12 @@ exports.getMovies = async(req,res)=>{
         //  console.log(filter)
         const movies = await Movie.find(filter);
 
-        res.status(200).send(movies);
+        if(movies.length > 0 ){
+            res.status(200).send(movies);
+           }
+           else {
+            res.status(404).send("No movies data found with given filters");
+           }
 
     
 
