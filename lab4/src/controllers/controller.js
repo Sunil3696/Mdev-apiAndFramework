@@ -14,7 +14,8 @@ const fs =require('fs');
 // };
 
 exports.getMovies = async(req,res)=>{
-
+        console.log(req.query.title);
+        return;
 }
 
 
