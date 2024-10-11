@@ -19,9 +19,11 @@ exports.getMovies = async(req,res)=>{
         try {
             let filter = {};
             if(req.query.title) {
+                //adding query title to the filter and making the filter incase sensitive
                 filter.title = new RegExp(req.query.title, 'i');
                 let movies = await Movie.find(filter);
                     if(movies.length > 0){
+                        // returning movies data
                         res.status(200).send(movies);
                     } else {
                         res.status(404).send("No movie found with that title");
@@ -29,7 +31,7 @@ exports.getMovies = async(req,res)=>{
             }
 
             else {
-                //returning all movies
+                //returning all movies (same code as previos version)
                 try{
                             const movies = await Movie.find();
                              res.status(200).json(movies);
