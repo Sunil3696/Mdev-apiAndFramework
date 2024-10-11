@@ -20,12 +20,16 @@ exports.getMovies = async(req,res)=>{
             let filter = {};
 
             if(req.query.title) {
-
+                res.status(200).send("I am here")
             }
 
             else {
                 //returning all movies
             }
+        }
+        catch (error) {
+            console.error('Error fetching movies:', error);
+            res.status(500).send({ message: 'Error retrieving movies' });
         }
 
 }
