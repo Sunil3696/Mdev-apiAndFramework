@@ -14,8 +14,20 @@ const fs =require('fs');
 // };
 
 exports.getMovies = async(req,res)=>{
-        console.log(req.query.title);
-        return;
+        // console.log(req.query.title);
+        // return;
+        try {
+            let filter = {};
+
+            if(req.query.title) {
+
+            }
+
+            else {
+                //returning all movies
+            }
+        }
+
 }
 
 
