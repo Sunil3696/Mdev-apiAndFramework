@@ -60,9 +60,14 @@ exports.getMovies = async(req,res)=>{
         if (req.query.genre) {
             filter.genres = req.query.genre;
         }
+        if(req.query.year){
+            filter.year = Number(req.query.year);
+        }
 
-        console.log(filter)
-        return
+        
+
+        // console.log(filter)
+        // return
     }
     catch (error) {
         console.error('Error fetching movies:', error);
