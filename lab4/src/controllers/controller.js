@@ -18,22 +18,26 @@ exports.getMovies = async(req,res)=>{
         // return;
         try {
             let filter = {};
-
             if(req.query.title) {
                 filter.title = new RegExp(req.query.title, 'i');
                 let movies = await Movie.find(filter);
                     if(movies.length > 0){
                         res.status(200).send(movies);
                     } else {
-                        res.status(400).send("No movie found with that title");
+                        res.status(404).send("No movie found with that title");
                     }
-
-                
-
             }
 
             else {
                 //returning all movies
+                try{
+                            const movies = await Movie.find();
+                             res.status(200).json(movies);
+                        }
+                        catch(e){
+                                console.error(e);
+                                res.status(500).send('Error retrieving Movies');
+                        }
             }
         }
         catch (error) {
