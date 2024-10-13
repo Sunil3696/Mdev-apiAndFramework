@@ -18,4 +18,19 @@ const validateRecipe = (req, res, next) => {
 
 }
 
-module.exports ={validateRecipe}
+
+const validateUser = (req, res, next) => {
+    const {email, username, password} = req.body
+
+    if(!email || !username || !password) {
+        res.status(400).send("All fields are required");
+        return;
+    }
+    if(password.length < 6){
+        res.status(400).send("Password must be at least 6 chars long");
+        return;
+    }
+    next()
+}
+
+module.exports ={validateRecipe, validateUser}
