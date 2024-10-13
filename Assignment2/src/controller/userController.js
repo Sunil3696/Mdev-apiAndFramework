@@ -26,13 +26,12 @@ const registerUser = async (req, res) => {
 
 
 const loginUser = async (req, res) => {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+    const { email, password } = req.body;
+
+    if(!email || !password) {
+        res.status(401).json({ message: 'All fields are required' });
+        return
     }
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
 };
 
 
