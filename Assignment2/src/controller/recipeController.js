@@ -76,21 +76,30 @@ const Recipe = require("../models/recipeModel");
 const getRecipeByID = async (req, res) => {
     // console.log("I am here");
     try {
-        const movie = await Recipe.findById(req.params.id);
-        if(!movie) {
+        const recipe = await Recipe.findById(req.params.id);
+        if(!recipe) {
             return res.status(404).send("Recipe not found with given Recipe ID")
         } else {
-            res.status(200).json(movie);
+            res.status(200).json(recipe);
         }
     }
     catch (error){
         console.error(error);
-        res.status(500).send('Error retrieving the Movies');
+        res.status(500).send('Error retrieving the recipe');
     }
 }
 
 const deleteRecipeById = async (req, res) => {
+    try{
+        const deletedRecipe = await Recipe.findByIdAndDelete(req.params.id);
+        if(!deletedRecipe) {
 
+        } else {
+
+        }
+    } catch{
+
+    }
 }
 
 
