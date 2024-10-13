@@ -93,12 +93,13 @@ const deleteRecipeById = async (req, res) => {
     try{
         const deletedRecipe = await Recipe.findByIdAndDelete(req.params.id);
         if(!deletedRecipe) {
-
+            return res.status(404).send('Recipe not found');
         } else {
-
+            res.status(201).json(deletedRecipe);
         }
-    } catch{
-
+    } catch (error){
+        console.error(error);
+        res.status(500).send('Error deleting the Recipe');
     }
 }
 
