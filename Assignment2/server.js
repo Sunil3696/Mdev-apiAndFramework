@@ -8,6 +8,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+const recipeRoutes = require("./src/routes/recipeRoutes");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -31,10 +32,13 @@ app.use(express.json());
 
 
 //All Routes goes here
-
+//testing endpoint
 app.get('/test', (req, res) => {
     res.send('I am testing');
 })
+
+app.use('/api/recipe', recipeRoutes); //Base URL for recipe
+
 
 //Starting the server
 app.listen(PORT, () => {
