@@ -52,7 +52,7 @@ const fs =require('fs');
 
 
 
-// Section 2: extending search and filter functionality
+// // Section 2: extending search and filter functionality
 exports.getMovies = async(req,res)=>{
     try {
         let filter = {};
