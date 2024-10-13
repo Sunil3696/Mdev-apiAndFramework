@@ -1,3 +1,10 @@
+/**
+ * File: userRoutes.js
+ * Author: Sunil Balami
+ * StudentID: 200578456
+ * Date: 2024-10-13
+ * Description: handle the certain routes request correctly and passing the request to the controller
+ */
 const express = require("express");
 const router = express.Router();
 const { validateUser } = require("../middleware/middleware");

@@ -1,4 +1,14 @@
 /**
+ * File: middleware.js
+ * Author: Sunil Balami
+ * StudentID: 200578456
+ * Date: 2024-10-13
+ * Description: Handle anything just before the execution of controller function to validate certain things before processing requests
+ */
+
+
+
+/**
  * Desc: Middleware that checks if all the fields are not empty
  *Parameter:
  *   req : recipe contents

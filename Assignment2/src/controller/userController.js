@@ -1,3 +1,12 @@
+/**
+ * File: userController.js
+ * Author: Sunil Balami
+ * StudentID: 200578456
+ * Date: 2024-10-13
+ * Description: Handles all the task and  function related to user and authentication
+ */
+
+
 const User = require("../models/userModel");
 
 /**
