@@ -8,6 +8,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('express-session');
 const recipeRoutes = require("./src/routes/recipeRoutes");
 const authRoutes = require("./src/routes/userRoutes")
 const app = express();
@@ -30,7 +31,11 @@ mongoose.connect(MongodbURI,{
 app.use(express.json());
 
 
-
+app.use(session({
+    secret: "sunil",
+    resave: false,
+    saveUninitialized: false
+}));
 
 //All Routes goes here
 //testing endpoint
