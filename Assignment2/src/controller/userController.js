@@ -25,7 +25,12 @@ const registerUser = async (req, res) => {
     }
 }
 
-
+/**
+ * Desc: Login function
+ *Parameter:
+ *   req : email and passoword from user
+ *   res : if credential matches user id and success messagw will be returned and if not error message
+ */
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -51,7 +56,11 @@ const loginUser = async (req, res) => {
     }
 };
 
-
+/**
+ * Desc: Logout function
+ *Parameter:
+ *   res : Destroy the session and logout message sent
+ */
 const logoutUser = (req, res) => {
     req.session.destroy(err => {
         if (err) {
