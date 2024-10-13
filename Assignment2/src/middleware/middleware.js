@@ -18,7 +18,9 @@ const validateRecipe = (req, res, next) => {
 
 }
 
-
+/**User validation middleware
+ * Check if all the required data is recived or not and also check password length
+ **/
 const validateUser = (req, res, next) => {
     const {email, username, password} = req.body
 
