@@ -8,11 +8,14 @@
 
 const express = require('express');
 const router = express.Router();
+const {validateRecipe} = require('../middleware/middleware')
 const {getAllRecipes, createRecipe, getRecipeByID, deleteRecipeById, updateRecipe} = require('../controller/recipeController')
 
+
+//registering routes here
 router.get('/', getAllRecipes);
 
-router.post('/', createRecipe);
+router.post('/',validateRecipe, createRecipe);
 
 router.get('/:id', getRecipeByID);
 
