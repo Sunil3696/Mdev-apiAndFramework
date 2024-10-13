@@ -1,5 +1,12 @@
 const User = require("../models/userModel");
 
+
+/**
+ * Desc: Register function
+ *Parameter:
+ *   req : email and passoword and username (Uniuqe)
+ *   res : Check existence of user in db and register if user is new and credtials are ok
+ */
 const registerUser = async (req, res) => {
     const { email, password , username} = req.body;
 
