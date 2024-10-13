@@ -39,7 +39,7 @@ app.get('/test', (req, res) => {
 })
 
 app.use('/api/recipe', recipeRoutes); //Base URL for recipe
-
+app.use('/api/user', authRoutes) //Base URL for User Auth
 
 
 //Starting the server
