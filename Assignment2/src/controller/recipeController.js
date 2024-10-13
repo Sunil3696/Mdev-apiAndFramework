@@ -89,6 +89,12 @@ const getRecipeByID = async (req, res) => {
     }
 }
 
+/**
+ * Desc: Function deleteRecipeById is to delete recipe from database
+ *Parameter:
+ *   req : Recipe id
+ *   res : The whole object that has been deleted.
+ */
 const deleteRecipeById = async (req, res) => {
     try{
         const deletedRecipe = await Recipe.findByIdAndDelete(req.params.id);
