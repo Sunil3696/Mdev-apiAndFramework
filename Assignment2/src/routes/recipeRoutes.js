@@ -6,22 +6,26 @@
  * Description: Routes is to handle the recipe related requsted and route them to correct controller
  */
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const {validateRecipe} = require('../middleware/middleware')
-const {getAllRecipes, createRecipe, getRecipeByID, deleteRecipeById, updateRecipe} = require('../controller/recipeController')
-
+const { validateRecipe } = require("../middleware/middleware");
+const {
+  getAllRecipes,
+  createRecipe,
+  getRecipeByID,
+  deleteRecipeById,
+  updateRecipe,
+} = require("../controller/recipeController");
 
 //registering routes here
-router.get('/', getAllRecipes);
+router.get("/", getAllRecipes);
 
-router.post('/',validateRecipe, createRecipe);
+router.post("/", validateRecipe, createRecipe);
 
-router.get('/:id', getRecipeByID);
+router.get("/:id", getRecipeByID);
 
-router.delete('/:id', deleteRecipeById);
+router.delete("/:id", deleteRecipeById);
 
-router.put('/:id',validateRecipe, updateRecipe);
-
+router.put("/:id", validateRecipe, updateRecipe);
 
 module.exports = router; //exporting router

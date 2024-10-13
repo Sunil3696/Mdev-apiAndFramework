@@ -7,29 +7,27 @@
  */
 
 const mongoose = require("mongoose");
-const bcrypt = require('bcrypt');
-
+const bcrypt = require("bcrypt");
 
 //Creating modes
 const UserSchema = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
 });
 
 // encrypting password before creating or updating user in the database
-UserSchema.pre('save', async function(next) {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
+UserSchema.pre("save", async function (next) {
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
 });
 
 //password validation
-UserSchema.methods.isValidPassword = function(password) {
-    return bcrypt.compare(password, this.password);
+UserSchema.methods.isValidPassword = function (password) {
+  return bcrypt.compare(password, this.password);
 };
 
-
 //exporting functions
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model("User", UserSchema);
 module.exports = User;
