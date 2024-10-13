@@ -110,7 +110,25 @@ const deleteRecipeById = async (req, res) => {
 }
 
 
+/**
+ * Desc: This controller function is to update the data on the database
+ *Parameter:
+ *   req : Recipe id
+ *   res : The whole object that has been updated.
+ */
+const updateRecipe = async(req,res) =>{
+    try{
+        const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id,req.body,{new:true});
+        if(!updatedRecipe){
+            return res.status(404).send('Recipe is not updated');
+        }
+        res.status(201).json(updatedRecipe);
+    
+    }
+    catch(e){
+        console.error(e);
+        res.status(500).send('Error uodating the Recipe');
+    }
+};
 
-
-
-module.exports = { getAllRecipes, createRecipe, getRecipeByID, deleteRecipeById };
+module.exports = { getAllRecipes, createRecipe, getRecipeByID, deleteRecipeById , updateRecipe};
