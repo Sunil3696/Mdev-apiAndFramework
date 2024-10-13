@@ -21,7 +21,7 @@ router.get('/:id', getRecipeByID);
 
 router.delete('/:id', deleteRecipeById);
 
-router.put('/:id', updateRecipe);
+router.put('/:id',validateRecipe, updateRecipe);
 
 
 module.exports = router; //exporting router
