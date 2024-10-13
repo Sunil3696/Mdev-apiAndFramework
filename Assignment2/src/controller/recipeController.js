@@ -67,5 +67,10 @@ const Recipe = require("../models/recipeModel");
   };
 
 
+const getRecipeByID = async (req, res) => {
+    
+}
 
-  module.exports = { getAllRecipes, createRecipe };
+
+
+  module.exports = { getAllRecipes, createRecipe, getRecipeByID };

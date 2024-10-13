@@ -8,11 +8,13 @@
 
 const express = require('express');
 const router = express.Router();
-const {getAllRecipes, createRecipe} = require('../controller/recipeController')
+const {getAllRecipes, createRecipe, getRecipeByID} = require('../controller/recipeController')
 
 router.get('/', getAllRecipes);
 
 router.post('/', createRecipe);
+
+router.get('/:id', getRecipeByID);
 
 
 module.exports = router; //exporting router
