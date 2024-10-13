@@ -66,7 +66,7 @@ const Recipe = require("../models/recipeModel");
     }
   };
 
-  
+
 /**
  * Desc: Function getRecipeById is to fetch recipe from db based on the URL parameter
  *Parameter:
@@ -74,7 +74,7 @@ const Recipe = require("../models/recipeModel");
  *   res : The whole object that matches the recipe id
  */
 const getRecipeByID = async (req, res) => {
-    console.log("I am here");
+    // console.log("I am here");
     try {
         const movie = await Recipe.findById(req.params.id);
         if(!movie) {
@@ -82,7 +82,6 @@ const getRecipeByID = async (req, res) => {
         } else {
             res.status(200).json(movie);
         }
-
     }
     catch (error){
         console.error(error);
@@ -90,5 +89,12 @@ const getRecipeByID = async (req, res) => {
     }
 }
 
+const deleteRecipeById = async (req, res) => {
 
-module.exports = { getAllRecipes, createRecipe, getRecipeByID };
+}
+
+
+
+
+
+module.exports = { getAllRecipes, createRecipe, getRecipeByID, deleteRecipeById };
