@@ -27,6 +27,45 @@ const Recipe = require("../models/recipeModel");
     }
   };
 
+/**
+ * Desc: Function createRecipe is to handle the create operation ro Mongodb
+ *Parameter:
+ *   req : JSON body of Recipe data like recipeName, cookingTime etc
+ *   res : The whole object that is created or the error body.
+ */
+ const createRecipe = async (req, res) => {
+    const {
+      recipeName,
+      ingredients,
+      cookingTime,
+      difficulty,
+      cuisine,
+      description,
+      photoLink,
+      averageRating,
+    } = req.body;
+    //creating new instance of the Recipe model with data on it
+    const newRecipe = new Recipe({
+      recipeName,
+      ingredients,
+      cookingTime,
+      difficulty,
+      cuisine,
+      description,
+      photoLink,
+      averageRating,
+    });
+    // res.json("sunil")
+    try {
+      const savedData = await newRecipe.save(); //saving data to the Database.
+      res.status(201).json(savedData);
+    } catch (error) {
+      res
+        .status(400)
+        .json({ message: "Failed to create recipe", error: error.message });
+    }
+  };
 
 
-  module.exports = { getAllRecipes };
+
+  module.exports = { getAllRecipes, createRecipe };
