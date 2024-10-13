@@ -27,6 +27,15 @@ mongoose.connect(MongodbURI,{
 //parshing JSON requests
 app.use(express.json());
 
+
+
+
+//All Routes goes here
+
+app.get('/test', (req, res) => {
+    res.send('I am testing');
+})
+
 //Starting the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
