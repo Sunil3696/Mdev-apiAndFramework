@@ -12,7 +12,12 @@ router.post('/login',passport.authenticate('local'),(req,res)=>{
 
 //Route to logout
 router.get('/logout', (req, res) => {
-   
+    req.logout((error) => {
+        if (error) {
+            return next(error);  
+        }
+        res.send('User Logged out successfully'); 
+    });
 });
 
 module.exports = router;
